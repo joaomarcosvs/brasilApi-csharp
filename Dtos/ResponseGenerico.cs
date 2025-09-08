@@ -7,6 +7,6 @@ namespace IntegraBrasilApi.Dtos
     {
         public HttpStatusCode CodigoHttp { get; set; }
         public T? DadosRetorno { get; set; }
-        public ExpandoObject? ErroRetorno { get; set; }
+        public string? ErroRetorno { get; set; }
     }
 }
