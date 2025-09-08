@@ -35,3 +35,4 @@ C:\Users\joaom\OneDrive\Área de Trabalho\projetos_c#\IntegraBrasilApi\obj\Debug
 C:\Users\joaom\OneDrive\Área de Trabalho\projetos_c#\IntegraBrasilApi\obj\Debug\net9.0\IntegraBrasilApi.pdb
 C:\Users\joaom\OneDrive\Área de Trabalho\projetos_c#\IntegraBrasilApi\obj\Debug\net9.0\IntegraBrasilApi.genruntimeconfig.cache
 C:\Users\joaom\OneDrive\Área de Trabalho\projetos_c#\IntegraBrasilApi\obj\Debug\net9.0\ref\IntegraBrasilApi.dll
+C:\Users\joaom\OneDrive\Área de Trabalho\projetos_c#\IntegraBrasilApi\obj\Debug\net9.0\IntegraBrasilApi.sourcelink.json
