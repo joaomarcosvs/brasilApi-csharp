@@ -27,7 +27,7 @@ namespace IntegraBrasilApi.Rest
                 else
                 {
                     response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                    response.ErroRetorno = JsonSerializer.Deserialize<string>(contentResp);
                 }
             }
             return response;
@@ -52,7 +52,7 @@ namespace IntegraBrasilApi.Rest
                 else
                 {
                     response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                    response.ErroRetorno = JsonSerializer.Deserialize<string>(contentResp);
                 }
             }
             return response;
@@ -77,7 +77,7 @@ namespace IntegraBrasilApi.Rest
                 else
                 {
                     response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                    response.ErroRetorno = JsonSerializer.Deserialize<string>(contentResp);
                 }
             }
             return response;
