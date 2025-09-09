@@ -1,6 +1,6 @@
-﻿using System.Net;
-using IntegraBrasilApi.Interfaces;
+﻿using IntegraBrasilApi.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace IntegraBrasilApi.Controllers
 {
@@ -15,7 +15,7 @@ namespace IntegraBrasilApi.Controllers
             _service = service;
         }
 
-        [HttpGet("cepim/{cpfCnpj}")]
+        [HttpGet("cepin/{cpfCnpj}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -26,8 +26,8 @@ namespace IntegraBrasilApi.Controllers
 
             if (response.CodigoHttp == HttpStatusCode.OK)
                 return Ok(response.DadosRetorno);
-            else
-                return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
+
+            return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
         }
 
         [HttpGet("peps/{cpfCnpj}")]
@@ -41,8 +41,8 @@ namespace IntegraBrasilApi.Controllers
 
             if (response.CodigoHttp == HttpStatusCode.OK)
                 return Ok(response.DadosRetorno);
-            else
-                return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
+
+            return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
         }
     }
 }

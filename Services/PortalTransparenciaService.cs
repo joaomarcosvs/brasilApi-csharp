@@ -6,9 +6,10 @@ namespace IntegraBrasilApi.Services
 {
     public class PortalTransparenciaService : IPortalTransparenciaService
     {
-        private readonly PortalTransparenciaRest _rest;
+        private readonly IPortalTransparenciaRest _rest;
 
-        public PortalTransparenciaService(PortalTransparenciaRest rest)
+        // Construtor com injeção de dependência
+        public PortalTransparenciaService(IPortalTransparenciaRest rest)
         {
             _rest = rest;
         }
@@ -22,6 +23,5 @@ namespace IntegraBrasilApi.Services
         {
             return await _rest.ConsultarPeps(cpfCnpj);
         }
-
     }
 }
