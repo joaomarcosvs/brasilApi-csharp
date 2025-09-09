@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 using IntegraBrasilApi.Dtos;
+using Microsoft.Extensions.Configuration;
 
 namespace IntegraBrasilApi.Rest
 {
@@ -8,9 +9,16 @@ namespace IntegraBrasilApi.Rest
     {
         private readonly HttpClient _httpClient;
 
-        public PortalTransparenciaRest(HttpClient httpClient)
+        public PortalTransparenciaRest(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+
+            // Recupera a chave do appsettings.json
+            var apiKey = configuration["PortalTransparencia:ApiKey"];
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                _httpClient.DefaultRequestHeaders.Add("chave-api", apiKey);
+            }
         }
 
         public async Task<ResponseGenerico<CepimResponse>> ConsultarCepim(string cpfCnpj)
@@ -19,8 +27,9 @@ namespace IntegraBrasilApi.Rest
 
             try
             {
-                var request = await _httpClient.GetAsync($"https://api.portaldatransparencia.gov.br/api-de-dados/cepim?cpfCnpj={cpfCnpj}");
-                
+                var request = await _httpClient.GetAsync(
+                    $"https://api.portaldatransparencia.gov.br/api-de-dados/cepim?cpfCnpj={cpfCnpj}");
+
                 response.CodigoHttp = request.StatusCode;
 
                 if (request.IsSuccessStatusCode)
@@ -48,8 +57,9 @@ namespace IntegraBrasilApi.Rest
 
             try
             {
-                var request = await _httpClient.GetAsync($"https://api.portaldatransparencia.gov.br/api-de-dados/peps?cpfCnpj={cpfCnpj}");
-                
+                var request = await _httpClient.GetAsync(
+                    $"https://api.portaldatransparencia.gov.br/api-de-dados/peps?cpfCnpj={cpfCnpj}");
+
                 response.CodigoHttp = request.StatusCode;
 
                 if (request.IsSuccessStatusCode)
