@@ -14,7 +14,7 @@ namespace IntegraBrasilApi.Services
             _rest = rest;
         }
 
-        public async Task<ResponseGenerico<CepimResponse>> ConsultarCepim(string cpfCnpj)
+        public async Task<ResponseGenerico<List<CepimResponse>>> ConsultarCepim(string cpfCnpj)
         {
             return await _rest.ConsultarCepim(cpfCnpj);
         }

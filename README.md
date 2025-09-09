@@ -47,6 +47,30 @@ Um aplicativo console em C# (.NET 9.0) que consulta endpoints públicos da Brasi
    ```bash
    dotnet run
 
+## Configuração da API do Portal da Transparência
+
+Para utilizar as funcionalidades que consultam o Portal da Transparência (como a consulta de CEPIM e PEPS), é necessário configurar uma chave de API.
+
+1.  **Obtenha sua chave:** Acesse o [Portal da Transparência](http.www.portaltransparencia.gov.br/api-de-dados/cadastrar-email) para cadastrar seu e-mail e receber uma chave de API.
+
+2.  **Configure a chave localmente:** Crie ou modifique o arquivo `appsettings.Development.json` na raiz do projeto e adicione a seguinte seção, substituindo `"SUA_CHAVE_API_AQUI"` pela chave que você recebeu:
+
+    ```json
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "PortalTransparencia": {
+        "ApiKey": "SUA_CHAVE_API_AQUI"
+      }
+    }
+    ```
+
+    **Importante:** O arquivo `appsettings.Development.json` não deve ser enviado para o controle de versão (Git) para proteger sua chave. Certifique-se de que ele esteja no seu arquivo `.gitignore`.
+
 ##  Explicação
 
 ### 1. Visão geral

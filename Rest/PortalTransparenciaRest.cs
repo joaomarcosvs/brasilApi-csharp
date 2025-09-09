@@ -17,13 +17,13 @@ namespace IntegraBrasilApi.Rest
             var apiKey = configuration["PortalTransparencia:ApiKey"];
             if (!string.IsNullOrEmpty(apiKey))
             {
-                _httpClient.DefaultRequestHeaders.Add("chave-api", apiKey);
+                _httpClient.DefaultRequestHeaders.Add("chave-api-dados", apiKey);
             }
         }
 
-        public async Task<ResponseGenerico<CepimResponse>> ConsultarCepim(string cpfCnpj)
+        public async Task<ResponseGenerico<List<CepimResponse>>> ConsultarCepim(string cpfCnpj)
         {
-            var response = new ResponseGenerico<CepimResponse>();
+            var response = new ResponseGenerico<List<CepimResponse>>();
 
             try
             {
@@ -35,7 +35,7 @@ namespace IntegraBrasilApi.Rest
                 if (request.IsSuccessStatusCode)
                 {
                     var content = await request.Content.ReadAsStringAsync();
-                    response.DadosRetorno = JsonSerializer.Deserialize<CepimResponse>(content);
+                    response.DadosRetorno = JsonSerializer.Deserialize<List<CepimResponse>>(content);
                 }
                 else
                 {
